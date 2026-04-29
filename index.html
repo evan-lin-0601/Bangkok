@@ -4,15 +4,24 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Bangkok Family Journey</title>
+
 <style>
 :root{
   --bg:#f7efe2; --card:#fffaf1; --ink:#2b2723; --muted:#75685d;
   --gold:#c99a3f; --line:#e7d6ba; --dark:#302820;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.75}
-.wrap{max-width:860px;margin:auto;padding:22px 16px 80px}
-.hero{background:linear-gradient(135deg,#fffaf1,#f1dfbf);border:1px solid var(--line);border-radius:30px;padding:26px;box-shadow:0 16px 40px rgba(80,50,20,.12)}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  line-height:1.75;
+}
+.wrap{max-width:900px;margin:auto;padding:22px 16px 80px}
+.hero{
+  background:linear-gradient(135deg,#fffaf1,#f1dfbf);
+  border:1px solid var(--line);border-radius:30px;padding:26px;
+  box-shadow:0 16px 40px rgba(80,50,20,.12);
+}
 h1{font-size:42px;line-height:1.05;margin:10px 0}
 h2{font-size:25px;margin:0}
 h3{font-size:20px;margin:18px 0 8px}
@@ -20,26 +29,52 @@ h3{font-size:20px;margin:18px 0 8px}
 .sub{color:var(--muted)}
 .info{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
 .info div{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px}
-@media(max-width:720px){.info{grid-template-columns:1fr}h1{font-size:34px}}
 .day{margin-top:28px}
-.banner{background:var(--dark);color:white;border-radius:24px;padding:18px 20px;margin-bottom:14px;display:flex;justify-content:space-between;gap:12px}
+.banner{
+  background:var(--dark);color:white;border-radius:24px;padding:18px 20px;
+  margin-bottom:14px;display:flex;justify-content:space-between;gap:12px;
+}
 .banner span{color:#f4d086;font-weight:900}
-.card{background:var(--card);border:1px solid var(--line);border-radius:24px;margin:14px 0;overflow:hidden;box-shadow:0 10px 28px rgba(80,50,20,.08)}
-summary{cursor:pointer;list-style:none;padding:16px;display:grid;grid-template-columns:68px 1fr;gap:14px;align-items:center}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:24px;
+  margin:14px 0;overflow:hidden;box-shadow:0 10px 28px rgba(80,50,20,.08);
+}
+summary{
+  cursor:pointer;list-style:none;padding:16px;
+  display:grid;grid-template-columns:68px 1fr;gap:14px;align-items:center;
+}
 summary::-webkit-details-marker{display:none}
-.time{background:#2b2723;color:white;border-radius:16px;height:54px;display:grid;place-items:center;font-size:14px;font-weight:900;text-align:center}
+.time{
+  background:#2b2723;color:white;border-radius:16px;height:54px;
+  display:grid;place-items:center;font-size:14px;font-weight:900;text-align:center;
+}
 .title{font-size:20px;font-weight:950}
 .desc{font-size:14px;color:var(--muted)}
-.cover{width:100%;height:230px;object-fit:cover;display:block}
+.cover{width:100%;height:240px;object-fit:cover;display:block}
 .content{padding:0 16px 18px}
-.guide{background:#fff1c7;border-left:5px solid var(--gold);border-radius:16px;padding:14px 16px;margin:14px 0}
-.shin{background:#fff7d8;border:2px dashed #e8aa4d;border-radius:16px;padding:10px 12px;margin:12px 0;font-size:14px}
-.btn{display:inline-block;background:#2b2723;color:white;text-decoration:none;border-radius:999px;padding:9px 13px;margin:6px 6px 0 0;font-size:14px;font-weight:800}
+.guide{
+  background:#fff1c7;border-left:5px solid var(--gold);
+  border-radius:16px;padding:14px 16px;margin:14px 0;
+}
+.shin{
+  background:#fff7d8;border:2px dashed #e8aa4d;
+  border-radius:16px;padding:10px 12px;margin:12px 0;font-size:14px;
+}
+.btn{
+  display:inline-block;background:#2b2723;color:white;text-decoration:none;
+  border-radius:999px;padding:9px 13px;margin:6px 6px 0 0;
+  font-size:14px;font-weight:800;
+}
 .options{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
 .opt{background:white;border:1px solid var(--line);border-radius:16px;padding:12px}
-@media(max-width:720px){.options{grid-template-columns:1fr}.cover{height:210px}.banner{display:block}}
 .small{font-size:13px;color:var(--muted)}
 .footer{text-align:center;color:var(--muted);margin-top:30px;font-size:13px}
+@media(max-width:720px){
+  .info,.options{grid-template-columns:1fr}
+  .cover{height:210px}
+  .banner{display:block}
+  h1{font-size:34px}
+}
 </style>
 </head>
 
@@ -49,7 +84,11 @@ summary::-webkit-details-marker{display:none}
 <header class="hero">
   <div class="kicker">Bangkok Travel Guide｜4/30–5/3</div>
   <h1>曼谷親子導遊行程</h1>
-  <p class="sub">天氣優化版：上午安排戶外與重點景點，下午安排室內、按摩與咖啡，傍晚抓水門寺夕陽。點開卡片可看導遊講解、拜法、還願方式與 Google Maps。</p>
+  <p class="sub">
+    天氣優化版：上午安排戶外與重點景點，下午安排室內、按摩與咖啡，傍晚抓水門寺夕陽。
+    點開卡片可看導遊講解、拜法、還願方式與 Google Maps。
+  </p>
+
   <div class="info">
     <div><b>✈️ CI833</b><br>07:00 TPE → 09:45 BKK<br><span class="small">抵達為曼谷當地時間，曼谷比台灣慢 1 小時。</span></div>
     <div><b>✈️ CI836</b><br>17:30 BKK → 22:05 TPE<br><span class="small">回程建議提早 2.5–3 小時到機場。</span></div>
@@ -75,7 +114,11 @@ summary::-webkit-details-marker{display:none}
     <summary><div class="time">13:30</div><div><div class="title">Siam 午餐＋換錢</div><div class="desc">商場冷氣、餐廳選擇多，適合第一餐</div></div></summary>
     <img class="cover" src="siam.png" alt="Siam Bangkok">
     <div class="content">
-      <p><b>區域說明：</b>Siam 是曼谷最核心的商業區，像是曼谷版信義區。因為曼谷白天炎熱，商場文化非常強，吃飯、購物、休息都集中在這裡。</p>
+      <div class="guide">
+        <b>導遊講解：</b><br>
+        Siam 是曼谷最核心的商業區，像是曼谷版信義區。因為曼谷白天炎熱，商場文化非常強，
+        吃飯、購物、休息都集中在這裡。
+      </div>
       <div class="options">
         <div class="opt"><b>Siam Paragon Food Hall</b><br><span class="small">最穩、選擇多。</span><br><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Siam+Paragon+Food+Hall" target="_blank">地圖</a></div>
         <div class="opt"><b>Thipsamai</b><br><span class="small">Pad Thai 經典選擇。</span><br><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Thipsamai+Siam+Paragon" target="_blank">地圖</a></div>
@@ -89,7 +132,8 @@ summary::-webkit-details-marker{display:none}
     <div class="content">
       <div class="guide">
         <b>導遊講解：</b><br>
-        四面佛其實供奉的是印度教的「梵天 Brahma」，不是傳統佛教寺廟。1950 年代附近興建飯店時，工程傳出多次意外，因此依照宗教與占星建議設立神壇祈福。後來這裡逐漸成為曼谷最著名的信仰地標之一。<br><br>
+        四面佛其實供奉的是印度教的「梵天 Brahma」，不是傳統佛教寺廟。1950 年代附近興建飯店時，
+        工程傳出多次意外，因此依照宗教與占星建議設立神壇祈福。後來這裡逐漸成為曼谷最著名的信仰地標之一。<br><br>
         四面象徵人生四個面向：<b>事業學業、感情人際、財富機會、健康平安</b>。
       </div>
       <h3>🙏 怎麼拜</h3>
@@ -103,11 +147,12 @@ summary::-webkit-details-marker{display:none}
 
   <details class="card" open>
     <summary><div class="time">16:00</div><div><div class="title">LV Visionary Journeys</div><div class="desc">已預約｜精品品牌體驗展</div></div></summary>
-    <img class="cover" src="message.png" alt="LV Bangkok">
+    <img class="cover" src="LV.png" alt="LV Visionary Journeys">
     <div class="content">
       <div class="guide">
         <b>導遊講解：</b><br>
-        這不是一般精品店，而是 Louis Vuitton 的品牌體驗空間。LV 最早以旅行箱起家，服務歐洲貴族與長途旅行者，所以品牌核心一直與「旅行、移動、生活方式」有關。<br><br>
+        這不是一般精品店，而是 Louis Vuitton 的品牌體驗空間。LV 最早以旅行箱起家，服務歐洲貴族與長途旅行者，
+        所以品牌核心一直與「旅行、移動、生活方式」有關。<br><br>
         這類展覽其實是在做品牌敘事：讓人理解一個品牌如何從功能性的行李箱，逐漸變成全球奢侈品與生活風格象徵。
       </div>
       <p><b>看點：</b>經典行李箱、藝術聯名、沉浸式空間、LV 咖啡與紀念體驗。</p>
@@ -227,12 +272,46 @@ summary::-webkit-details-marker{display:none}
 </section>
 
 <section class="day">
-  <div class="banner"><div><span>DAY 4</span><h2>5/3｜回程</h2></div><div>從容離開</div></div>
+  <div class="banner"><div><span>DAY 4</span><h2>5/3｜早午餐・輕鬆收尾・回程</h2></div><div>舒適收尾日</div></div>
+
   <details class="card" open>
-    <summary><div class="time">上午</div><div><div class="title">飯店早餐 / 整理行李</div><div class="desc">不安排遠距離移動</div></div></summary>
-    <img class="cover" src="Grand hotel.png" alt="Hotel">
+    <summary><div class="time">09:30</div><div><div class="title">早午餐 Brunch</div><div class="desc">最後一餐舒服吃＋拍照</div></div></summary>
+    <img class="cover" src="coffee.png" alt="Bangkok Brunch">
     <div class="content">
-      <p>確認護照、行李、退房時間與 CI836 航班。建議提前 2.5–3 小時到 Suvarnabhumi Airport。</p>
+      <div class="guide">
+        <b>導遊講解：</b><br>
+        曼谷這幾年 Brunch 文化非常強，很多餐廳走的是歐美＋熱帶設計風格，也是觀光客最後一天最常安排的舒適行程。
+      </div>
+      <div class="options">
+        <div class="opt"><b>Luka Cafe</b><br><span class="small">環境舒服、早午餐穩。</span><br><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Luka+Cafe+Bangkok" target="_blank">地圖</a></div>
+        <div class="opt"><b>Rocket Coffeebar</b><br><span class="small">北歐風＋好拍照。</span><br><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Rocket+Coffeebar+Bangkok" target="_blank">地圖</a></div>
+      </div>
+      <div class="shin">小新風提醒：最後一天就是要吃好一點，不然回去會後悔。</div>
+    </div>
+  </details>
+
+  <details class="card" open>
+    <summary><div class="time">11:30</div><div><div class="title">輕鬆收尾行程</div><div class="desc">最後逛一下或散步</div></div></summary>
+    <img class="cover" src="siam.png" alt="Bangkok Shopping">
+    <div class="content">
+      <p><b>建議 2 選 1：</b></p>
+      <div class="options">
+        <div class="opt"><b>Central Embassy</b><br><span class="small">冷氣＋最後購物。</span><br><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Central+Embassy+Bangkok" target="_blank">地圖</a></div>
+        <div class="opt"><b>Benjakitti Park</b><br><span class="small">若天氣穩，可散步拍照。</span><br><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Benjakitti+Park" target="_blank">地圖</a></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="card" open>
+    <summary><div class="time">14:30</div><div><div class="title">前往機場</div><div class="desc">CI836 回台灣</div></div></summary>
+    <img class="cover" src="airport.png" alt="Suvarnabhumi Airport">
+    <div class="content">
+      <div class="guide">
+        <b>導遊提醒：</b><br>
+        建議至少提前 2.5 小時到機場，曼谷交通不穩定，請預留緩衝時間。
+      </div>
+      <p>✔ 建議 14:30 出發<br>✔ 15:00 抵達機場<br>✔ 17:30 起飛</p>
+      <div class="shin">小新風提醒：不要最後一天還在趕飛機，那會變恐怖片。</div>
       <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Suvarnabhumi+Airport" target="_blank">機場地圖</a>
     </div>
   </details>
