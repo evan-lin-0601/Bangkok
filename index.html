@@ -1,110 +1,254 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bangkok Journey</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bangkok Journey｜4/30–5/3</title>
 
 <style>
+:root{
+  --bg:#f6efe3;
+  --paper:#fffaf2;
+  --card:#fffdf8;
+  --ink:#2c2620;
+  --muted:#77695d;
+  --gold:#c7963f;
+  --brown:#3a2e25;
+  --line:#e8d7bd;
+  --soft:#f2e4ca;
+}
+
+*{box-sizing:border-box}
+
 body{
   margin:0;
-  font-family: "Noto Sans TC", sans-serif;
-  background:#f6efe3;
-  color:#2b2723;
+  background:
+    radial-gradient(circle at top left, rgba(199,150,63,.18), transparent 30%),
+    linear-gradient(135deg,#f8f0e2,#fffaf2 45%,#f0dfc4);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  line-height:1.75;
 }
 
 .wrap{
-  max-width:900px;
+  max-width:980px;
   margin:auto;
-  padding:20px;
+  padding:26px 16px 80px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#fffaf2,#f3e3c5);
+  border:1px solid var(--line);
+  border-radius:34px;
+  padding:34px 28px;
+  box-shadow:0 20px 50px rgba(70,45,20,.12);
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::after{
+  content:"Bangkok";
+  position:absolute;
+  right:-20px;
+  bottom:-20px;
+  font-size:92px;
+  font-weight:900;
+  color:rgba(199,150,63,.12);
+}
+
+.kicker{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid var(--line);
+  color:#8a5a22;
+  font-weight:900;
+  font-size:14px;
 }
 
 h1{
-  text-align:center;
-  margin-bottom:30px;
+  margin:16px 0 10px;
+  font-size:clamp(36px,6vw,64px);
+  line-height:1.05;
+}
+
+h2{
+  margin:0;
+  font-size:clamp(24px,4vw,34px);
+}
+
+h3{
+  margin:20px 0 8px;
+  font-size:21px;
+}
+
+.sub{
+  color:var(--muted);
+  max-width:760px;
+  font-size:17px;
+}
+
+.info{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:22px;
+}
+
+.info-card{
+  background:rgba(255,255,255,.75);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:16px;
 }
 
 .day{
-  margin-bottom:40px;
+  margin-top:34px;
 }
 
-.banner{
-  background:#2b2723;
+.day-header{
+  background:linear-gradient(135deg,#2d261f,#5b4025);
   color:white;
-  padding:15px 20px;
-  border-radius:20px;
-  font-weight:bold;
+  border-radius:28px;
+  padding:20px 22px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:flex-end;
+  box-shadow:0 16px 34px rgba(60,35,15,.18);
+}
+
+.day-header span{
+  color:#f2d48d;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+
+.day-note{
+  color:#f2d48d;
+  font-weight:800;
+  white-space:nowrap;
 }
 
 .card{
-  background:white;
-  border-radius:20px;
-  margin-top:15px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:28px;
   overflow:hidden;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  margin-top:18px;
+  box-shadow:0 12px 32px rgba(65,42,20,.10);
 }
 
 summary{
-  display:flex;
-  gap:10px;
-  padding:15px;
   cursor:pointer;
+  list-style:none;
+  padding:18px;
+  display:grid;
+  grid-template-columns:70px 1fr;
+  gap:14px;
   align-items:center;
 }
 
+summary::-webkit-details-marker{display:none}
+
 .time{
-  background:#2b2723;
+  width:62px;
+  height:62px;
+  border-radius:18px;
+  background:var(--brown);
   color:white;
-  padding:8px 10px;
-  border-radius:10px;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  font-size:14px;
+  text-align:center;
+  line-height:1.15;
+}
+
+.title{
+  font-size:21px;
+  font-weight:950;
+}
+
+.desc{
+  color:var(--muted);
   font-size:14px;
 }
 
 .cover{
   width:100%;
-  height:220px;
+  height:280px;
   object-fit:cover;
+  display:block;
 }
 
 .content{
-  padding:15px;
+  padding:0 20px 22px;
 }
 
 .guide{
-  background:#fff3c4;
-  padding:12px;
-  border-left:4px solid orange;
-  margin:12px 0;
+  background:#fff2cc;
+  border-left:5px solid var(--gold);
+  border-radius:18px;
+  padding:16px;
+  margin:16px 0;
 }
 
-.shin{
-  background:#fff7d8;
-  border:1px dashed orange;
-  padding:10px;
-  margin-top:10px;
+.tip{
+  background:#f7ead2;
+  border:1px dashed #d4ad62;
+  border-radius:18px;
+  padding:13px 15px;
+  margin:14px 0;
+  color:#5d4730;
+}
+
+.options{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:12px;
+}
+
+.opt{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:14px;
 }
 
 .btn{
   display:inline-block;
-  background:black;
+  background:var(--brown);
   color:white;
-  padding:6px 10px;
-  border-radius:999px;
   text-decoration:none;
-  margin-top:10px;
+  border-radius:999px;
+  padding:9px 14px;
+  font-size:14px;
+  font-weight:900;
+  margin:8px 6px 0 0;
 }
 
-.options{
-  display:flex;
-  gap:10px;
-  margin-top:10px;
+.small{
+  color:var(--muted);
+  font-size:13px;
 }
 
-.opt{
-  flex:1;
-  border:1px solid #eee;
-  padding:10px;
-  border-radius:10px;
+.footer{
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  margin-top:38px;
+}
+
+@media(max-width:760px){
+  .info,.options{grid-template-columns:1fr}
+  .cover{height:230px}
+  .day-header{display:block}
+  .day-note{margin-top:6px}
+  summary{grid-template-columns:62px 1fr}
+  .time{width:56px;height:56px}
 }
 </style>
 </head>
@@ -112,158 +256,475 @@ summary{
 <body>
 <div class="wrap">
 
-<h1>Bangkok 導遊行程 🇹🇭</h1>
+<header class="hero">
+  <div class="kicker">4/30–5/3｜Bangkok Family Journey</div>
+  <h1>曼谷導遊行程</h1>
+  <p class="sub">
+    以天氣、動線與舒適度重新整理的曼谷行程。每天用「上午景點、下午室內或按摩、傍晚拍照、晚上用餐」的節奏安排，
+    並加入景點歷史、文化脈絡、參拜方式與 Google Maps 連結。
+  </p>
 
-<!-- DAY 1 -->
-<div class="day">
-<div class="banner">DAY 1｜抵達・Siam・四面佛・LV</div>
+  <div class="info">
+    <div class="info-card">
+      <b>✈️ 去程 CI833</b><br>
+      07:00 TPE → 09:45 BKK<br>
+      <span class="small">抵達時間為曼谷當地時間，曼谷比台灣慢 1 小時。</span>
+    </div>
+    <div class="info-card">
+      <b>✈️ 回程 CI836</b><br>
+      17:30 BKK → 22:05 TPE<br>
+      <span class="small">建議至少提早 2.5–3 小時抵達機場。</span>
+    </div>
+    <div class="info-card">
+      <b>🏨 4/30–5/2｜Royal Benja Hotel</b><br>
+      Sukhumvit 區，適合作為前兩晚移動基地。<br>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Royal+Benja+Hotel+Bangkok" target="_blank">飯店地圖</a>
+    </div>
+    <div class="info-card">
+      <b>🏨 5/2–5/3｜W Bangkok</b><br>
+      最後一晚入住，晚餐安排在 W Bangkok。<br>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=W+Bangkok" target="_blank">飯店地圖</a>
+    </div>
+  </div>
+</header>
 
-<details class="card" open>
-<summary><div class="time">09:45</div><div>抵達曼谷</div></summary>
-<img class="cover" src="airport.png">
-<div class="content">
-<p>CI833 抵達，前往飯店放行李。</p>
-</div>
-</details>
+<section class="day">
+  <div class="day-header">
+    <div>
+      <span>DAY 1</span>
+      <h2>4/30｜抵達・Siam・四面佛・LV Journey</h2>
+    </div>
+    <div class="day-note">室內為主</div>
+  </div>
 
-<details class="card">
-<summary><div class="time">13:30</div><div>Siam 午餐</div></summary>
-<img class="cover" src="siam.png">
-<div class="content">
-<p>曼谷最核心商業區，像信義區。</p>
-</div>
-</details>
+  <details class="card" open>
+    <summary>
+      <div class="time">09:45</div>
+      <div>
+        <div class="title">抵達曼谷 BKK</div>
+        <div class="desc">入境、拿行李、前往 Royal Benja Hotel</div>
+      </div>
+    </summary>
+    <img class="cover" src="airport.png" alt="Bangkok Airport">
+    <div class="content">
+      <p>
+        航班抵達後，實際出機場大約會落在 10:45–11:15。第一天建議不要安排太多戶外景點，
+        先到飯店放行李，再從 Siam 商圈開始，行程會比較從容。
+      </p>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Royal+Benja+Hotel+Bangkok" target="_blank">Royal Benja Hotel</a>
+    </div>
+  </details>
 
-<details class="card" open>
-<summary><div class="time">15:00</div><div>四面佛</div></summary>
-<img class="cover" src="buddha.png">
-<div class="content">
+  <details class="card">
+    <summary>
+      <div class="time">13:30</div>
+      <div>
+        <div class="title">Siam 午餐＋換錢</div>
+        <div class="desc">曼谷核心商業區，第一餐最穩選擇</div>
+      </div>
+    </summary>
+    <img class="cover" src="siam.png" alt="Siam Bangkok">
+    <div class="content">
+      <div class="guide">
+        <b>導遊講解：</b><br>
+        Siam 是曼谷最核心的商業區之一，功能類似台北信義區。曼谷白天炎熱，因此大型商場不只是購物場所，
+        也是城市生活的重要空間。餐飲、換錢、購物、休息都能在這裡完成。
+      </div>
+      <div class="options">
+        <div class="opt">
+          <b>Siam Paragon Food Hall</b><br>
+          <span class="small">選擇多、冷氣穩、第一餐不容易踩雷。</span><br>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Siam+Paragon+Food+Hall" target="_blank">地圖</a>
+        </div>
+        <div class="opt">
+          <b>Thipsamai</b><br>
+          <span class="small">Pad Thai 經典選擇。</span><br>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Thipsamai+Siam+Paragon" target="_blank">地圖</a>
+        </div>
+      </div>
+    </div>
+  </details>
 
-<div class="guide">
-四面佛其實供奉印度教梵天，象徵人生四面向：事業、感情、財富、健康。
-</div>
+  <details class="card" open>
+    <summary>
+      <div class="time">15:00</div>
+      <div>
+        <div class="title">四面佛 Erawan Shrine</div>
+        <div class="desc">參拜、許願、認識曼谷還願文化</div>
+      </div>
+    </summary>
+    <img class="cover" src="buddha.png" alt="Erawan Shrine">
+    <div class="content">
+      <div class="guide">
+        <b>導遊講解：</b><br>
+        四面佛其實供奉的是印度教的「梵天 Brahma」，不是傳統佛教寺廟。1950 年代附近興建飯店時，
+        工程傳出多次意外，因此依照宗教與占星建議設立神壇祈福。後來這裡逐漸成為曼谷最著名的信仰地標之一。<br><br>
+        四面象徵人生四個面向：<b>事業學業、感情人際、財富機會、健康平安</b>。
+      </div>
 
-<p>
-👉 順時針拜四面<br>
-👉 許願要具體<br>
-👉 成功要還願
-</p>
+      <h3>🙏 怎麼拜</h3>
+      <p>
+        1. 到現場購買供品。<br>
+        2. 先用聖水洗手，象徵淨化。<br>
+        3. 從正面開始，<b>順時針</b>拜四面。<br>
+        4. 許願時說明名字、來自哪裡、願望內容，以及願望實現後如何還願。
+      </p>
 
-<div class="shin">小新：願望講清楚啦！</div>
+      <h3>🎁 怎麼還願</h3>
+      <p>
+        最經典的還願方式是請舞者跳傳統舞蹈。你如果在現場看到舞者表演，那通常不是普通表演，
+        而是信徒願望實現後回來履行承諾。也有人會以供花、捐款或做善事作為還願方式。
+      </p>
 
-<a class="btn" href="https://maps.google.com/?q=Erawan+Shrine">地圖</a>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Erawan+Shrine+Bangkok" target="_blank">四面佛地圖</a>
+    </div>
+  </details>
 
-</div>
-</details>
+  <details class="card" open>
+    <summary>
+      <div class="time">16:00</div>
+      <div>
+        <div class="title">LV Visionary Journeys</div>
+        <div class="desc">已預約｜品牌展覽與旅行敘事</div>
+      </div>
+    </summary>
+    <img class="cover" src="LV.png" alt="LV Visionary Journeys">
+    <div class="content">
+      <div class="guide">
+        <b>導遊講解：</b><br>
+        LV 最早以旅行箱起家，服務歐洲貴族與長途旅行者，因此品牌核心一直與「旅行、移動、生活方式」有關。
+        這類展覽不是單純展示商品，而是在做品牌敘事：讓人理解一個品牌如何從功能性的行李箱，
+        逐步成為全球奢侈品與生活風格象徵。
+      </div>
+      <p><b>看點：</b>經典行李箱、藝術聯名、沉浸式展覽空間、LV 咖啡與紀念體驗。</p>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=LV+The+Place+Bangkok" target="_blank">LV 地圖</a>
+    </div>
+  </details>
 
-<details class="card" open>
-<summary><div class="time">16:00</div><div>LV Journey</div></summary>
-<img class="cover" src="LV.png">
-<div class="content">
-<p>品牌展覽，講旅行文化與奢侈品牌。</p>
-</div>
-</details>
+  <details class="card">
+    <summary>
+      <div class="time">17:30</div>
+      <div>
+        <div class="title">按摩 / 晚餐彈性安排</div>
+        <div class="desc">第一天以舒適與恢復狀態為主</div>
+      </div>
+    </summary>
+    <img class="cover" src="coffee.png" alt="Massage Bangkok">
+    <div class="content">
+      <p>第一天建議安排 60–90 分鐘按摩即可，不需要排太滿。可以選飯店附近，或回 Siam / Central 區域。</p>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=massage+near+Royal+Benja+Hotel+Bangkok" target="_blank">附近按摩</a>
+    </div>
+  </details>
+</section>
 
-</div>
+<section class="day">
+  <div class="day-header">
+    <div>
+      <span>DAY 2</span>
+      <h2>5/1｜Factory Coffee・按摩・水門寺夕陽・鄭王廟晚餐</h2>
+    </div>
+    <div class="day-note">主力拍照日</div>
+  </div>
 
-<!-- DAY 2 -->
-<div class="day">
-<div class="banner">DAY 2｜咖啡・按摩・水門寺・鄭王廟</div>
+  <details class="card" open>
+    <summary>
+      <div class="time">09:00</div>
+      <div>
+        <div class="title">Factory Coffee 冠軍咖啡</div>
+        <div class="desc">精品咖啡早餐</div>
+      </div>
+    </summary>
+    <img class="cover" src="coffee.png" alt="Factory Coffee">
+    <div class="content">
+      <div class="guide">
+        <b>導遊講解：</b><br>
+        Factory Coffee 代表曼谷新一代精品咖啡文化。曼谷近年不只以夜市與寺廟聞名，
+        也出現許多高水準咖啡店，反映城市年輕化、國際化與生活風格升級。
+      </div>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Factory+Coffee+Bangkok" target="_blank">Factory Coffee 地圖</a>
+    </div>
+  </details>
 
-<details class="card" open>
-<summary><div class="time">09:00</div><div>Factory Coffee</div></summary>
-<img class="cover" src="coffee.png">
-<div class="content">
-<a class="btn" href="https://maps.google.com/?q=Factory+Coffee+Bangkok">地圖</a>
-</div>
-</details>
+  <details class="card">
+    <summary>
+      <div class="time">12:00</div>
+      <div>
+        <div class="title">午餐選擇</div>
+        <div class="desc">建興酒家 / Siam / CentralWorld</div>
+      </div>
+    </summary>
+    <img class="cover" src="siam.png" alt="Lunch Bangkok">
+    <div class="content">
+      <div class="options">
+        <div class="opt">
+          <b>Somboon Seafood</b><br>
+          <span class="small">咖哩蟹名店，適合家庭聚餐。</span><br>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Somboon+Seafood+Bangkok" target="_blank">地圖</a>
+        </div>
+        <div class="opt">
+          <b>CentralWorld / Siam</b><br>
+          <span class="small">動線穩、室內舒適。</span><br>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=CentralWorld+Bangkok+restaurants" target="_blank">地圖</a>
+        </div>
+      </div>
+    </div>
+  </details>
 
-<details class="card">
-<summary><div class="time">14:00</div><div>按摩</div></summary>
-<img class="cover" src="coffee.png">
-<div class="content">
-<p>避開最熱時段</p>
-</div>
-</details>
+  <details class="card">
+    <summary>
+      <div class="time">14:00</div>
+      <div>
+        <div class="title">主按摩時段</div>
+        <div class="desc">避開炎熱與午後雷雨</div>
+      </div>
+    </summary>
+    <img class="cover" src="coffee.png" alt="Massage Bangkok">
+    <div class="content">
+      <p>這段時間最適合安排按摩。曼谷 5 月午後容易出現雷陣雨，按摩剛好可以作為降溫與雨天緩衝。</p>
+      <div class="options">
+        <div class="opt">
+          <b>Health Land</b><br>
+          <span class="small">環境穩，適合 2 小時。</span><br>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Health+Land+Spa+Bangkok" target="_blank">地圖</a>
+        </div>
+        <div class="opt">
+          <b>Let’s Relax</b><br>
+          <span class="small">分店多，臨時調整方便。</span><br>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Let%27s+Relax+Bangkok" target="_blank">地圖</a>
+        </div>
+      </div>
+    </div>
+  </details>
 
-<details class="card" open>
-<summary><div class="time">17:00</div><div>水門寺夕陽</div></summary>
-<img class="cover" src="buddha.png">
-<div class="content">
-<p>最佳拍照時間</p>
-</div>
-</details>
+  <details class="card" open>
+    <summary>
+      <div class="time">17:00</div>
+      <div>
+        <div class="title">水門寺 Wat Paknam 夕陽</div>
+        <div class="desc">本趟重點拍照點</div>
+      </div>
+    </summary>
+    <img class="cover" src="buddha.png" alt="Wat Paknam">
+    <div class="content">
+      <div class="guide">
+        <b>導遊講解：</b><br>
+        水門寺建立於大城王朝時期，已有數百年歷史。它近年受到關注，是因為巨大的金色佛像。
+        佛像象徵覺悟、智慧與超越煩惱。<br><br>
+        這裡最迷人的地方，是它不在高度觀光化的市中心，而是在曼谷傳統運河社區中。
+        你會同時看到居民日常、小船、河道與宏偉佛像，形成宗教、生活與城市並存的畫面。
+      </div>
+      <p><b>拍照建議：</b>16:30 出發，17:00–18:30 拍夕陽。若天氣不穩，直接保留河岸餐廳晚餐作為後續重點。</p>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Wat+Paknam+Phasi+Charoen" target="_blank">水門寺地圖</a>
+    </div>
+  </details>
 
-<details class="card" open>
-<summary><div class="time">19:00</div><div>鄭王廟晚餐</div></summary>
-<img class="cover" src="icon siam.png">
-<div class="content">
+  <details class="card" open>
+    <summary>
+      <div class="time">19:00</div>
+      <div>
+        <div class="title">鄭王廟河岸餐廳晚餐</div>
+        <div class="desc">Wat Arun 夜景＋昭披耶河晚餐</div>
+      </div>
+    </summary>
+    <img class="cover" src="Wat Arun.png" alt="Wat Arun Riverside Dinner">
+    <div class="content">
+      <div class="guide">
+        <b>導遊講解：</b><br>
+        鄭王廟（Wat Arun）是曼谷最具代表性的河岸地標之一。中央高塔稱為 Prang，
+        象徵佛教宇宙觀中的須彌山。塔身裝飾大量彩色瓷片，這些裝飾也反映過去中泰貿易與河運文化。<br><br>
+        夜晚從昭披耶河對岸看鄭王廟，是最經典的角度。白天看建築細節，晚上看燈光與倒影，
+        兩種感受完全不同。
+      </div>
 
-<div class="guide">
-鄭王廟是曼谷代表地標，夜景非常美。
-</div>
+      <div class="options">
+        <div class="opt">
+          <b>View Arun</b><br>
+          <span class="small">經典正對 Wat Arun 的河景餐廳。</span><br>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=View+Arun+Bangkok" target="_blank">地圖</a>
+        </div>
+        <div class="opt">
+          <b>The Deck by Arun Residence</b><br>
+          <span class="small">老牌河岸餐廳，夜景穩定。</span><br>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=The+Deck+by+Arun+Residence" target="_blank">地圖</a>
+        </div>
+      </div>
 
-<div class="options">
-<div class="opt">
-View Arun<br>
-<a class="btn" href="https://maps.google.com/?q=View+Arun">地圖</a>
-</div>
+      <div class="tip">
+        <b>提醒：</b>這一餐重點是景色與氛圍，建議提前預約靠窗或戶外河景座位。
+      </div>
+    </div>
+  </details>
+</section>
 
-<div class="opt">
-The Deck<br>
-<a class="btn" href="https://maps.google.com/?q=The+Deck+Arun">地圖</a>
-</div>
-</div>
+<section class="day">
+  <div class="day-header">
+    <div>
+      <span>DAY 3</span>
+      <h2>5/2｜Song Wat・Talat Noi・W Bangkok</h2>
+    </div>
+    <div class="day-note">雨天友善日</div>
+  </div>
 
-<div class="shin">小新：這餐是拍照用的</div>
+  <details class="card" open>
+    <summary>
+      <div class="time">10:00</div>
+      <div>
+        <div class="title">Benjakitti Park / 室內備案</div>
+        <div class="desc">依天氣決定</div>
+      </div>
+    </summary>
+    <img class="cover" src="siam.png" alt="Bangkok City">
+    <div class="content">
+      <p>
+        若早上天氣穩，可去 Benjakitti Forest Park 散步拍照；若天氣不穩，直接改成 Central Embassy / Siam 室內行程。
+      </p>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Benjakitti+Forest+Park" target="_blank">Benjakitti 地圖</a>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Central+Embassy+Bangkok" target="_blank">雨備地圖</a>
+    </div>
+  </details>
 
-</div>
-</details>
+  <details class="card" open>
+    <summary>
+      <div class="time">14:00</div>
+      <div>
+        <div class="title">Song Wat / Talat Noi 咖啡散步</div>
+        <div class="desc">老屋、華人聚落、城市再生</div>
+      </div>
+    </summary>
+    <img class="cover" src="china town.png" alt="Song Wat Chinatown">
+    <div class="content">
+      <div class="guide">
+        <b>導遊講解：</b><br>
+        Song Wat Road 是拉瑪五世時期規劃的重要商業街，因為鄰近昭披耶河，
+        過去和華人貿易、倉庫、河運物流密切相關。Talat Noi 則是曼谷早期華人聚落之一，
+        可以看到老式店屋、鐵工廠與汽車零件店。<br><br>
+        現在年輕人把老屋改造成咖啡廳與藝文空間，因此這一區呈現「舊經濟與新文化並存」，
+        是曼谷城市再生的代表。
+      </div>
 
-</div>
+      <div class="options">
+        <div class="opt">
+          <b>Mother Roaster</b><br>
+          <span class="small">老屋咖啡，故事感最強。</span><br>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Mother+Roaster+Bangkok" target="_blank">地圖</a>
+        </div>
+        <div class="opt">
+          <b>Song Wat Coffee Roasters</b><br>
+          <span class="small">設計感強，適合拍照。</span><br>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Song+Wat+Coffee+Roasters" target="_blank">地圖</a>
+        </div>
+      </div>
+    </div>
+  </details>
 
-<!-- DAY 3 -->
-<div class="day">
-<div class="banner">DAY 3｜老城區・W Hotel</div>
+  <details class="card" open>
+    <summary>
+      <div class="time">17:30</div>
+      <div>
+        <div class="title">入住 W Bangkok＋晚餐</div>
+        <div class="desc">最後一晚高質感收尾</div>
+      </div>
+    </summary>
+    <img class="cover" src="W hotel.png" alt="W Bangkok">
+    <div class="content">
+      <div class="guide">
+        <b>導遊講解：</b><br>
+        W Bangkok 代表曼谷現代精品酒店的一面，風格更偏都市、潮流與設計。
+        把最後一晚安排在這裡，可以讓旅程從傳統寺廟、老街文化，收束到現代曼谷的城市生活感。
+      </div>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=W+Bangkok" target="_blank">W Bangkok 地圖</a>
+    </div>
+  </details>
+</section>
 
-<details class="card" open>
-<summary><div class="time">14:00</div><div>Songwat</div></summary>
-<img class="cover" src="china town.png">
-<div class="content">
-<p>老街＋咖啡文化</p>
-</div>
-</details>
+<section class="day">
+  <div class="day-header">
+    <div>
+      <span>DAY 4</span>
+      <h2>5/3｜早午餐・輕鬆收尾・回程</h2>
+    </div>
+    <div class="day-note">下午回程</div>
+  </div>
 
-<details class="card" open>
-<summary><div class="time">17:30</div><div>W Hotel</div></summary>
-<img class="cover" src="W hotel.png">
-<div class="content">
-<a class="btn" href="https://maps.google.com/?q=W+Bangkok">地圖</a>
-</div>
-</details>
+  <details class="card" open>
+    <summary>
+      <div class="time">09:30</div>
+      <div>
+        <div class="title">早午餐 Brunch</div>
+        <div class="desc">最後一餐舒服吃＋拍照</div>
+      </div>
+    </summary>
+    <img class="cover" src="coffee.png" alt="Bangkok Brunch">
+    <div class="content">
+      <div class="guide">
+        <b>導遊講解：</b><br>
+        曼谷近年 Brunch 文化非常強，許多餐廳結合歐美早午餐、熱帶植栽與設計風格。
+        最後一天安排早午餐，能讓行程自然收尾，也避免中午後過度移動。
+      </div>
 
-</div>
+      <div class="options">
+        <div class="opt">
+          <b>Luka Cafe</b><br>
+          <span class="small">環境舒服，早午餐穩定。</span><br>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Luka+Cafe+Bangkok" target="_blank">地圖</a>
+        </div>
+        <div class="opt">
+          <b>Rocket Coffeebar</b><br>
+          <span class="small">北歐風格，適合拍照。</span><br>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Rocket+Coffeebar+Bangkok" target="_blank">地圖</a>
+        </div>
+      </div>
+    </div>
+  </details>
 
-<!-- DAY 4 -->
-<div class="day">
-<div class="banner">DAY 4｜收尾・回程</div>
+  <details class="card">
+    <summary>
+      <div class="time">11:30</div>
+      <div>
+        <div class="title">輕鬆收尾行程</div>
+        <div class="desc">最後逛一下或散步</div>
+      </div>
+    </summary>
+    <img class="cover" src="siam.png" alt="Bangkok Shopping">
+    <div class="content">
+      <p><b>建議二選一：</b></p>
+      <div class="options">
+        <div class="opt">
+          <b>Central Embassy</b><br>
+          <span class="small">冷氣、購物、用餐都方便，雨天也穩。</span><br>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Central+Embassy+Bangkok" target="_blank">地圖</a>
+        </div>
+        <div class="opt">
+          <b>Benjakitti Park</b><br>
+          <span class="small">若天氣穩，可散步拍照。</span><br>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Benjakitti+Forest+Park" target="_blank">地圖</a>
+        </div>
+      </div>
+    </div>
+  </details>
 
-<details class="card" open>
-<summary><div class="time">09:30</div><div>早午餐</div></summary>
-<img class="cover" src="coffee.png">
-<div class="content">
-<p>舒服收尾</p>
-</div>
-</details>
+  <details class="card" open>
+    <summary>
+      <div class="time">14:30</div>
+      <div>
+        <div class="title">前往機場</div>
+        <div class="desc">CI836 回台灣</div>
+      </div>
+    </summary>
+    <img class="cover" src="airport.png" alt="Suvarnabhumi Airport">
+    <div class="content">
+      <div class="guide">
+        <b>提醒：</b><br>
+        曼谷交通不穩定，建議至少提前 2.5–3 小時抵達 Suvarnabhumi Airport。
+        若 CI836 為 17:30 起飛，14:30 左右離開市區會比較保險。
+      </div>
+      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Suvarnabhumi+Airport" target="_blank">機場地圖</a>
+    </div>
+  </details>
+</section>
 
-<details class="card" open>
-<summary><div class="time">14:30</div><div>前往機場</div></summary>
-<img class="cover" src="airport.png">
-<div class="content">
-<p>CI836 回台</p>
-</div>
-</details>
-
+<div class="footer">
+  Made for Evan’s Bangkok Journey｜日式旅遊手帳 × 泰國文化導覽 × 天氣優化
 </div>
 
 </div>
